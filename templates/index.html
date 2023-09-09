@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOGGLE</title>
+</head>
+<body>
+    <table>
+        <tbody>
+            {% for row in board %}
+             <tr>
+                {% for item in row %}
+                <td> {{item}} </td>
+                {% endfor %}
+             </tr>
+             {% endfor %}
+        </tbody>
+    </table>
+    <form method="POST" class ="guessform"> 
+        <input name = "word" type="text" class="wordinput">
+        <button> Submit</button>
+
+    </form>
+    <div>
+        Game Number <span id="gamenumber: "></span>
+    </div>
+    <div>
+        Score : <span id="score">  {{ session['score'] }} </span>
+    </div>
+    <div id="timerdiv">
+        Time Remaining: <span id="timer"> 60</span> s
+    </div>
+    <div class="message">
+
+    </div>
+    <script src="http://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/axios@0.19.0/dist/axios.js"></script>
+    <script src="/static/boggle.js"></script>
+    <script>
+      let game = new BoggleGame();
+    </script>
+</body>
+</html>
